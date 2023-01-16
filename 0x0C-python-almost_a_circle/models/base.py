@@ -116,8 +116,7 @@ class Base:
         """Return a list of classes instantiated from a CSV file.
         Reads from `<cls.__name__>.csv`.
         Returns:
-            If the file does not exist - an empty list.
-            Otherwise - a list of instantiated classes.
+            A list of instantiated classes.
         """
         filename = cls.__name__ + ".csv"
         try:
@@ -171,4 +170,4 @@ class Base:
                 turt.left(90)
             turt.hideturtle()
 
-        turtle.exitonclick()
+        turtle.exitonclick() 
