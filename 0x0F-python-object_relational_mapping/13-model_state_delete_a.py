@@ -19,12 +19,11 @@ if __name__ == '__main__':
         sys.argv[2],
         sys.argv[3]), pool_pre_ping=True)
 
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    all_states = session.query(State).order_by(State.id)
-    for inst in all_states:
-        if 'a' in inst.name:
-            session.delete(inst)
+    all_states = session.query(State).filter(State.name.like("%a%"))
+    all_states.delete(synchronize_session=False)
     session.commit()
     session.close()

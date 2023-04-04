@@ -11,30 +11,17 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    arg = sys.argv
     conn = MySQLdb.connect(
         host="localhost",
-        port=3306, user=arg[1],
-        passwd=arg[2], db=arg[3],
-        charset="utf8"
+        port=3306, user=argv[1],
+        passwd=argv[2], db=argv[3]
         )
     cur = conn.cursor()
-    if "'" in arg[4]:
-        idx = arg[4].index("'")
-        arg[4] = arg[4][:idx]
+    
     cur.execute(
-            """SELECT cities.name
-            FROM cities
-            INNER JOIN states ON states.id = cities.state_id
-            WHERE states.name = '{}'
-            ORDER BY cities.id ASC""".format(arg[4])
-            )
-    city_rows = cur.fetchall()
-    for i in range(len(city_rows)):
-        print(city_rows[i][0], end='')
-        if (i != len(city_rows) - 1):
-            print(', ', end='')
-        else:
-            print('')
+            "SELECT c.name from cities c JOIN states s on \
+            c.state_id = s.id WHERE s.name = %s",(argv[4],))
+    cities = cur.fetchall()
+    print(",".join(city[0] for city in cities))
     cur.close()
     conn.close()
