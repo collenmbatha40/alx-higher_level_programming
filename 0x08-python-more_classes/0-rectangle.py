@@ -2,6 +2,7 @@
 """Module for class Rectangle"""
 
 
+
 class Rectangle:
     """Represents a rectangle"""
     
