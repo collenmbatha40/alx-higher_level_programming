@@ -2,7 +2,7 @@
 """ Rectangle class module"""
 
 
-import Base from models.base
+from models.base import Base
 
 
 class Rectangle(Base):

@@ -1,18 +1,31 @@
-#!/usr/bin/python3
-""" Base class for all other classes"""
+
+"""Module base"""
+import json
+import csv
+from collections import OrderedDict
+import turtle
 
 
-class Base():
-    """Class named base(base for other classes)"""
+class Base:
+    """Defines a base class"""
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Initializing of class """
-        if not id == None:
+        """Method that assign the public instance attribute id
+
+        Args:
+           id(int): integer value to manage id in this project
+
+        Return:
+           Nothing.
+
+        """
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """Method that returns the JSON
