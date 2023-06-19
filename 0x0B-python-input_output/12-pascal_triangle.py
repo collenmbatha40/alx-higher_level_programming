@@ -12,7 +12,6 @@ def pascal_triangle(n):
         Returns: list of lists
 
     """
-    def pascal_triangle(n):
     if n <= 0:
         return []
 
@@ -25,4 +24,3 @@ def pascal_triangle(n):
         triangle.append(row)
 
     return triangle
-
