@@ -175,32 +175,23 @@ class Base:
         Args:
            list_squares(list): List of square objects
            list_rectangles(list): List of rectangle objects
-
         Return:
            Always nothing
         """
-        # Opens the screen and sets the turtle in the center
         s = turtle.getscreen()
         t = turtle.Turtle()
 
-        # Add a title to my screen
-        turtle.title("My first drawing using python turtle module")
+        turtle.title("Drawing Rectangles and Squares")
 
-        # Customize turtle and screen background
         t.shape("turtle")
         turtle.bgcolor("black")
 
-        # Customize pen for rectangle
         t.pen(pencolor="blue", fillcolor="white", pensize=5, speed=1)
-        # Extract the data from the instance rectangle list
         for instance in list_rectangles:
-            # Customize pen for rectangle
             t.pen(pencolor="blue", fillcolor="white", pensize=5, speed=1)
             data = instance.to_dictionary()
-            # Set the position according the rectangle obj
             t.home()
             t.setpos(data['x'], data['y'])
-            # Draw process
             t.pd()
             for i in range(2):
                 t.forward(data['width'])
@@ -209,21 +200,15 @@ class Base:
                 t.left(90)
             t.pu()
 
-        # Customize pen for square
         t.pen(pencolor="red", fillcolor="white", pensize=5, speed=0.5)
-        # Extract the data from the instance square list
         for instance in list_squares:
             data = instance.to_dictionary()
-            # Set the position according the square obj
             t.home()
             t.setpos(data['x'], data['y'])
-            # Draw process
             t.pd()
             for i in range(4):
                 t.forward(data['size'])
                 t.left(90)
             t.pu()
 
-        # Keeps window open
         turtle.getscreen()._root.mainloop()
-
