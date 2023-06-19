@@ -2,18 +2,19 @@
 
 """Define a class called Rectangle"""
 
+
 class Rectangle:
     """Initializes a rectangle"""
 
-    def __init__(self, width = 0, height = 0):
+    def __init__(self, width=0, height=0):
         """Initializing the rectangle dimensions"""
 
         self.width = width
         self.height = height
 
-    @property
+    @width.getter
     def width(self):
-        """retrieves the value for width"""
+        """Gets the value for width"""
         return self.__width
     
     @width.setter
@@ -25,9 +26,9 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
     
-    @property
+    @height.getter
     def height(self):
-        """retrieves the value for height"""
+        """Gets the value for height"""
         return self.__height
 
     @height.setter
