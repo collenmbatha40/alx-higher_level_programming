@@ -6,7 +6,11 @@ Module for pascal_triangle method.
 
 def pascal_triangle(n):
     """
-    Returns a list of lists of integers representing the Pascal’s triangle of n
+    Returns a list of lists of integers
+        Args:
+            n (int): number of lists and digits
+        Returns: list of lists
+
     """
     def pascal_triangle(n):
     if n <= 0:
