@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if a commit message is provided as an argument, otherwise use a default message
-commit_message="${1:-"Automatic commit"}"
+commit_message="${1:-"Updated mandatory project task files"}"
 
 # Function to check if the repository is a Git repository
 function is_git_repository() {
